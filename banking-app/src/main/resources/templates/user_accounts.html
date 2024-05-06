@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en"
+    xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>User Account</title>
+
+</head>
+<style>
+a:link, a:visited {
+  background-color: #ff2160;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border: solid black;
+}
+
+a:hover, a:active {
+  background-color: blue;
+  border: solid black;
+}
+
+tr>th{
+	background-color: #b7cae8;
+	color: black;
+	text-align: left;
+	padding: 15px;
+	
+}
+
+h1{
+background-color: black;
+color: white;
+vertical-align: middle;
+padding: 20px;
+}
+</style>
+<body>
+    <table class="table table-striped table-hover table-bordered" border="1">
+        <thead class="table-dark">
+            <h1>User Account</h1>
+			
+			
+            <tr>
+                <th>Name</th>
+                <!-- <th>Password</th> -->
+                <th>Account Number</th>
+                <!-- <th>Address</th> -->
+                <!-- <th>Phone Number</th> -->
+            </tr>
+            <style>
+                th{
+                    width: 300px;
+                }
+            </style>
+        </thead>
+        <tbody>
+            <tr th:each="account : ${accounts}">
+                <td th:text="${account.customerName}"></td>
+                <!-- <td th:text="${account.password}"></td> -->
+                <td th:text="${account.accountNumber}"></td>
+                <!-- <td th:text="${account.address}"></td> -->
+                <!-- <td th:text="${account.phoneNumber}"></td> -->
+				<td style="background-color:blue; color:white;"><a class="nav-link active" aria-current="page" th:href="@{'/userHome/' + ${account.accountCustomerId} + '/' + ${account.accountId}}" >View</a></td>
+				<td style="background-color:blue; color:white;"><a class="nav-link active" aria-current="page" th:href="@{'/userHome/' + ${account.accountCustomerId} + '/' + ${account.accountId} + '/withdraw'}" >Withdraw</a></td>
+				<td style="background-color:blue; color:white;"><a class="nav-link active" aria-current="page" th:href="@{'/userHome/' + ${account.accountCustomerId} + '/' + ${account.accountId} + '/deposit'}" >Deposit</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

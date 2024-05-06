@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en"
+    xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>User Account</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">User Account</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" th:href="@{'/userHome/' + ${account.accountCustomerId}}" >Accounts</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<br /><br />
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="text-center">Account Details</h2>
+                </div>
+                <div class="card-body">
+                    <p> Name: <strong th:text="${account.customerName}"></strong></p>
+					<p> Account Number: <strong th:text="${account.accountNumber}"></strong></p>
+                    <p> Status: <strong th:text="${account.status}"></strong></p>
+					<p> Balance: <strong th:text="${account.Balance}"></strong></p>
+                </div>
+				
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item">
+                    <a class="nav-link active" aria-current="page" th:href="@{'/userHome/' + ${account.accountCustomerId} + '/' + ${account.accountId} + '/withdraw'}" >Withdraw</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" th:href="@{'/userHome/' + ${account.accountCustomerId} + '/' + ${account.accountId} + '/deposit'}" >Deposit</a>
+                </li>
+				</ul>
+			</div>
+				
+            </div>
+        </div>
+    </div>
+</div>
+<div class="Message1"><p class="Text1" style="text-align: center; color:red; font-size:24px">Successful withdraw.</p>
+</body>
+</html>
